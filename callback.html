@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Access Granted</title></head>
+<body>
+  <h1>Jira Access Granted</h1>
+  <p>External System: <b th:text="${externalSystemKey}"></b></p>
+  <p>Code: <b th:text="${code}"></b></p>
+  <p>You can now call API endpoints:</p>
+  <ul>
+    <li>/jira/<span th:text="${externalSystemKey}"></span>/projects</li>
+    <li>/jira/<span th:text="${externalSystemKey}"></span>/issues?jql=project=ABC</li>
+    <li>/jira/<span th:text="${externalSystemKey}"></span>/issues/ABC-1</li>
+  </ul>
+</body>
+</html>
