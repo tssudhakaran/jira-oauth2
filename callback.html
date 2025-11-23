@@ -2,9 +2,20 @@
 <html>
 <head><title>Access Granted</title></head>
 <body>
+
+  <script>
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById("code").textContent = params.get("code");
+  document.getElementById("externalSystemKey").textContent = params.get("externalSystemKey");
+</script>
+  
   <h1>Jira Access Granted</h1>
   <p>External System: <b th:text="${externalSystemKey}"></b></p>
+  <p>External System: <b id="externalSystemKey"></b></p>
+  
   <p>Code: <b th:text="${code}"></b></p>
+  <p>Code: <b id="code"></b></p>
+  
   <p>You can now call API endpoints:</p>
   <ul>
     <li>/jira/<span th:text="${externalSystemKey}"></span>/projects</li>
