@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Callback Page</title>
+</head>
+<body>
+  <h1>Jira Access Granted</h1>
+  <p>External System: <b id="externalSystemKey"></b></p>
+  <p>Code: <b id="code"></b></p>
+  <p>You can now call API endpoints:</p>
+  <ul>
+    <li>/jira/<span id="projectsKey"></span>/projects</li>
+    <li>/jira/<span id="issuesKey"></span>/issues?jql=project=ABC</li>
+    <li>/jira/<span id="issueKey"></span>/issues/ABC-1</li>
+  </ul>
+
+  <script>
+    // Parse query parameters from the URL
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const externalSystemKey = params.get("externalSystemKey");
+
+    // Populate values into the page
+    document.getElementById("code").textContent = code || "(missing)";
+    document.getElementById("externalSystemKey").textContent = externalSystemKey || "(missing)";
+    document.getElementById("projectsKey").textContent = externalSystemKey || "";
+    document.getElementById("issuesKey").textContent = externalSystemKey || "";
+    document.getElementById("issueKey").textContent = externalSystemKey || "";
+  </script>
+</body>
+</html>
